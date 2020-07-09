@@ -1,0 +1,4 @@
+
+
+#define pig_VERSION_MAJOR @pig_VERSION_MAJOR@
+#define pig_VERSION_MINOR @pig_VERSION_MINOR@
