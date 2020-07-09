@@ -93,7 +93,29 @@ set(PIG_INCLUDES
 add_library(pig ${PIG_SRCS})
 target_link_libraries(pig PUBLIC ${SDL2_LIBRARIES})
 
-# target_include_directories(pig PUBLIC ${PROJECT_BINARY_DIR})
+set(INCLUDE_INSTALL_DIR "include/pig/" CACHE STRING ...)
+set(LIBRARY_INSTALL_DIR "lib/" CACHE STRING ...)
+set(SYSCONFIG_INSTALL_DIR "etc/pig/" CACHE STRING ...)
 
-install(TARGETS pig DESTINATION lib)
-install(FILES ${PIG_INCLUDES} DESTINATION include/pig)
+include(CMakePackageConfigHelpers)
+
+configure_package_config_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/pigConfig.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/pigConfig.cmake"
+    PATH_VARS INCLUDE_INSTALL_DIR
+    INSTALL_DESTINATION ${LIBRARY_INSTALL_DIR}/pig/cmake
+)
+
+write_basic_package_version_file(
+    ${CMAKE_CURRENT_BINARY_DIR}/pigConfigVersion.cmake
+    COMPATIBILITY AnyNewerVersion)
+
+install(FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/pigConfig.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/pigConfigVersion.cmake"
+    DESTINATION ${LIBRARY_INSTALL_DIR}/pig/cmake
+    COMPONENT pig
+)
+
+install(TARGETS pig DESTINATION ${LIBRARY_INSTALL_DIR})
+install(FILES ${PIG_INCLUDES} DESTINATION ${INCLUDE_INSTALL_DIR})
