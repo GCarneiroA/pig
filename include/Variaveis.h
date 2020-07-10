@@ -3,26 +3,27 @@
 #define VARIAVEIS_H
 
 #include "Tipos_PIG.h"
+#include "Tipos.h"
 
-    Charger*            Particulas = NULL;
-    Animation           ListaExplosoes[MAX_EXPLOSOES];
+extern Charger*            Particulas;
+extern Animation           ListaExplosoes[MAX_EXPLOSOES];
 
-    Vetor               Espaco[LARG_TELA+1][ALT_TELA+1];
+extern Vetor               Espaco[LARG_TELA+1][ALT_TELA+1];
 
-    int                 CampoObjetos[LARG_TELA+1][ALT_TELA+1];
+extern int                 CampoObjetos[LARG_TELA+1][ALT_TELA+1];
 
-    int                 TimerGeral = 0;
-    int                 TimerAvisos = 0;
-    int                 TimerAnimation = 0;
-    char                StringAvisos[100];
+extern int                 TimerGeral;
+extern int                 TimerAvisos;
+extern int                 TimerAnimation;
+extern char                StringAvisos[100];
 
-    int                 MovimentoEsferas = 1;
-    int                 DesenharVetoresTrajetorias = -1;
-    int                 DesenharGrade = 0;
-    int                 ColisaoAtivada = 0;
+extern int                 MovimentoEsferas;
+extern int                 DesenharVetoresTrajetorias;
+extern int                 DesenharGrade;
+extern int                 ColisaoAtivada;
 
-    int                 DistanciaVetoresEspaciais = 20;
+extern int                 DistanciaVetoresEspaciais;
 
-    float               Periodo = 0.01;
+extern float               Periodo;
 
 #endif

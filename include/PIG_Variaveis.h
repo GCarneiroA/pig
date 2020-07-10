@@ -10,23 +10,23 @@
 #define M_Radi DEGTORAD
 
 class CJogo;
-CJogo *jogo = nullptr;
+extern CJogo *jogo;
 
-PIG_Evento PIG_evento;
-PIG_Teclado PIG_meuTeclado;
-int PIGTeclasControle = 0;
-int PIGTeclasReturn = 0;
+extern PIG_Evento PIG_evento;
+extern PIG_Teclado PIG_meuTeclado;
+extern int PIGTeclasControle;
+extern int PIGTeclasReturn;
 
-int PIG_ExistenciaObjeto[MAX_OBJETOS] = {0};
-int PIG_ExistenciaTimer[MAX_TIMERS] = {0};
+extern int PIG_ExistenciaObjeto[MAX_OBJETOS];
+extern int PIG_ExistenciaTimer[MAX_TIMERS];
 
-int PIG_Tecla, PIG_Botao;
-int PIG_JogoRodando = 0;
+extern int PIG_Tecla, PIG_Botao;
+extern int PIG_JogoRodando;
 
-double CameraPosX = 0;
-double CameraPosY = 0;
-double CameraZoom = 0;
-double CameraRotationXY = 0;
-double CameraRotationZ = 0;
+extern double CameraPosX;
+extern double CameraPosY;
+extern double CameraZoom;
+extern double CameraRotationXY;
+extern double CameraRotationZ;
 
 #endif

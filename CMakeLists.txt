@@ -11,6 +11,8 @@ find_package(SDL2 REQUIRED)
 include_directories(include/ ${SDL2_INCLUDE_DIRS})
 
 set(PIG_SRCS
+    src/Variaveis.cpp
+    src/PIG_Variaveis.cpp
     src/AjustesEAtualizacoes.cpp
     src/CAnimacao.cpp
     src/CAssetLoader.cpp
