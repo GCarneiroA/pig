@@ -7,6 +7,9 @@ configure_file(pigConfig.h.in pigConfig.h)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_INCLUDE_CURRENT_DIR_IN_INTERFACE ON)
+
 find_package(SDL2 REQUIRED)
 include_directories(include/ ${SDL2_INCLUDE_DIRS})
 
@@ -92,32 +95,38 @@ set(PIG_INCLUDES
     include/Victor.h
 )
 
-add_library(pig ${PIG_SRCS})
+include(GenerateExportHeader)
+
+add_library(pig SHARED ${PIG_SRCS})
 target_link_libraries(pig PUBLIC ${SDL2_LIBRARIES})
+generate_export_header(pig)
 
-set(INCLUDE_INSTALL_DIR "include/pig/" CACHE STRING ...)
-set(LIBRARY_INSTALL_DIR "lib/" CACHE STRING ...)
-set(SYSCONFIG_INSTALL_DIR "etc/pig/" CACHE STRING ...)
 
-include(CMakePackageConfigHelpers)
 
-configure_package_config_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/pigConfig.cmake.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/pigConfig.cmake"
-    PATH_VARS INCLUDE_INSTALL_DIR
-    INSTALL_DESTINATION ${LIBRARY_INSTALL_DIR}/pig/cmake
-)
 
-write_basic_package_version_file(
-    ${CMAKE_CURRENT_BINARY_DIR}/pigConfigVersion.cmake
-    COMPATIBILITY AnyNewerVersion)
+#set(INCLUDE_INSTALL_DIR "include/pig/" CACHE STRING ...)
+#set(LIBRARY_INSTALL_DIR "lib/" CACHE STRING ...)
+#set(SYSCONFIG_INSTALL_DIR "etc/pig/" CACHE STRING ...)
 
-install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/pigConfig.cmake"
-    "${CMAKE_CURRENT_BINARY_DIR}/pigConfigVersion.cmake"
-    DESTINATION ${LIBRARY_INSTALL_DIR}/pig/cmake
-    COMPONENT pig
-)
+#include(CMakePackageConfigHelpers)
 
-install(TARGETS pig DESTINATION ${LIBRARY_INSTALL_DIR})
-install(FILES ${PIG_INCLUDES} DESTINATION ${INCLUDE_INSTALL_DIR})
+#configure_package_config_file(
+#    "${CMAKE_CURRENT_SOURCE_DIR}/pigConfig.cmake.in"
+#    "${CMAKE_CURRENT_BINARY_DIR}/pigConfig.cmake"
+#    PATH_VARS INCLUDE_INSTALL_DIR
+#    INSTALL_DESTINATION ${LIBRARY_INSTALL_DIR}/pig/cmake
+#)
+
+#write_basic_package_version_file(
+#    ${CMAKE_CURRENT_BINARY_DIR}/pigConfigVersion.cmake
+#    COMPATIBILITY AnyNewerVersion)
+
+#install(FILES
+#    "${CMAKE_CURRENT_BINARY_DIR}/pigConfig.cmake"
+#    "${CMAKE_CURRENT_BINARY_DIR}/pigConfigVersion.cmake"
+#    DESTINATION ${LIBRARY_INSTALL_DIR}/pig/cmake
+#    COMPONENT pig
+#)
+
+#install(TARGETS pig DESTINATION ${LIBRARY_INSTALL_DIR})
+#install(FILES ${PIG_INCLUDES} DESTINATION ${INCLUDE_INSTALL_DIR})

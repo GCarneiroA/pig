@@ -43,9 +43,4 @@ public:
     inline static float GetValorFloat(int id_animacao,int indice);
 };
 
-SDL_Renderer* CGerenciadorAnimacoes::render;
-PoolNumeros CGerenciadorAnimacoes::numAnimacoes;
-int CGerenciadorAnimacoes::totalAnimacoes;
-Animacao CGerenciadorAnimacoes::animacoes[MAX_ANIMACOES];
-
 #endif

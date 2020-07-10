@@ -31,9 +31,4 @@ public:
     static void CarregaCursor(int indice, char *nomeArquivo);
 };
 
-int CMouse::cursorAtual;
-InfoCursor* CMouse::cursores[MAX_CURSORES];
-SDL_Rect CMouse::rect;
-SDL_Renderer* CMouse::renderer;
-
 #endif

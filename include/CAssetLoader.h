@@ -31,8 +31,4 @@ public:
 
 };
 
-int CAssetLoader::totalBitmaps;
-PoolNumeros CAssetLoader::numBitmaps;
-HashNode* CAssetLoader::slots[MAX_SLOTS_AL];
-
 #endif

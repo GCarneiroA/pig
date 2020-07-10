@@ -28,8 +28,8 @@ public:
     static void DespausaTimer(int idTimer);
 };
 
-PoolNumeros CGerenciadorTimers::numTimers;
-int CGerenciadorTimers::totalTimers;
-CTimer *CGerenciadorTimers::timers[MAX_TIMERS];
+//extern PoolNumeros CGerenciadorTimers::numTimers;
+//extern int CGerenciadorTimers::totalTimers;
+//extern CTimer *CGerenciadorTimers::timers[MAX_TIMERS];
 
 #endif

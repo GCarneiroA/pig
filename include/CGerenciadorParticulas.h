@@ -27,9 +27,4 @@ public:
     inline static int Colisao(int id_gerador, CObjeto *obj);
 };
 
-SDL_Renderer* CGerenciadorParticulas::render;
-PoolNumeros CGerenciadorParticulas::numGeradores;
-int CGerenciadorParticulas::totalGeradores;
-GeradorParticulas CGerenciadorParticulas::geradores[MAX_GERADORPARTICULAS];
-
 #endif
